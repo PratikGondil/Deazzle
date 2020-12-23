@@ -96,7 +96,7 @@ class UserDataFragment : Fragment(), IUserDataView, CardStackListener {
         }
    }
 
-        fun observerCurrentUserAPI() {
+   fun observerCurrentUserAPI() {
         userDataViewModel.responseobserver.observe(
             viewLifecycleOwner,
             Observer { objStat ->
@@ -112,12 +112,13 @@ class UserDataFragment : Fragment(), IUserDataView, CardStackListener {
             DataOperations.storeDataToDatabase(result, BaseUtils.getDatabase(context)!!)
 
         }
+        userData = database!!.customerDao()!!.loadCustomerData() as List<UsersData>
+        adapter.setProfiles(userData)
 
     }
 
 
     override fun onCardDisappeared(view: View?, position: Int) {
-        Log.v("","'")
     }
 
     override fun onCardDragging(direction: Direction?, ratio: Float) {
@@ -125,20 +126,16 @@ class UserDataFragment : Fragment(), IUserDataView, CardStackListener {
     }
 
     override fun onCardSwiped(direction: Direction?) {
-        Log.v("","'")
 
     }
 
     override fun onCardCanceled() {
-        Log.v("","'")
     }
 
     override fun onCardAppeared(view: View?, position: Int) {
-        Log.v("","'")
     }
 
     override fun onCardRewound() {
-        Log.v("","'")
     }
 
 }
