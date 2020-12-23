@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="result"
+            type="com.deazzle.roomdatabase.entities.UsersData" />
+    </data>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rlNew"
+            >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/image_view_profile_pic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                app:image="@{result.picture}"
+                tools:background="@drawable/ic_launcher_background"
+                android:layout_alignParentLeft="true" />
+
+            <LinearLayout
+                android:id="@+id/llMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="casual"
+                    android:text="@{result.name}"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="Emma Watson, 26" />
+
+                <TextView
+                    android:id="@+id/txtlocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@{result.location}"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    tools:text="5 Miles Away" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+
+
+
+</layout>
